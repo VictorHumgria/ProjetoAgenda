@@ -5,6 +5,11 @@ exports.index = (req, res) => {
   return res.render('login');
 };
 
+exports.cadastro = (req, res) => {
+  if(req.session.user) return res.render('login-logado');
+  return res.render('cadastro');
+};
+
 exports.register = async function(req, res) {
   try {
     const login = new Login(req.body);
